@@ -2,13 +2,175 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <meta name="referrer" content="no-referrer">
-  <meta http-equiv="refresh" content="0;url=https://gouri-vote.tailf63b37.ts.net:8443/">
-  <title>리피아 홈페이지</title>
+  <meta name="theme-color" content="#fcf8f7">
+  <meta name="description" content="리피아의 네 멤버와 음악, 가상세계 SIM의 이야기를 만나보세요.">
+  <title>리피아 LIPIA</title>
+  <link rel="icon" type="image/webp" href="https://gouri-vote.tailf63b37.ts.net:8443/media/mark-dark.webp">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="intro.css">
+  <script defer src="app.js"></script>
+  <script defer src="intro.js"></script>
+  <script defer src="motion.js"></script>
 </head>
-<body>
-  <p><a href="https://gouri-vote.tailf63b37.ts.net:8443/" rel="noreferrer">리피아 홈페이지 열기</a></p>
+<body id="top">
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header">
+    <div class="masthead">
+      <a href="#top" class="brand" aria-label="리피아 처음으로"><img src="https://gouri-vote.tailf63b37.ts.net:8443/media/word-dark.webp" alt="리피아" width="80" height="31"></a>
+      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+        <a href="#members">멤버</a><a href="#films">영상·음악</a><a href="#universe">세계관</a><a href="#photos">사진</a>
+      </nav>
+      <div class="header-actions">
+        <a class="listen-link" href="#music"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>음원 미리듣기</a>
+        <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-controls="site-nav" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </div>
+    <span class="page-meter" aria-hidden="true"></span>
+  </header>
+  <main id="main">
+    <section class="hero" aria-label="리피아와 네 멤버">
+      <div class="hero-sticky">
+      <div class="hero-opening">
+      <div class="hero-frame">
+        <img class="hero-photo" id="hero-photo" src="https://gouri-vote.tailf63b37.ts.net:8443/media/rooftop.webp" srcset="https://gouri-vote.tailf63b37.ts.net:8443/media/rooftop-sm.webp 760w, https://gouri-vote.tailf63b37.ts.net:8443/media/rooftop.webp 1840w" sizes="100vw" width="1840" height="1035" fetchpriority="high" alt="분홍빛 옥상 난간에 기대어 서로 바라보는 레이문, 소나, 젠, 아샤">
+      </div>
+      <div class="hero-content">
+        <div class="hero-identity">
+          <h1><img src="https://gouri-vote.tailf63b37.ts.net:8443/media/word-white.webp" width="360" height="142" alt="LIPIA 리피아"></h1>
+          <p>가상세계 SIM에서 만난 네 사람의 음악.</p>
+          <div class="hero-actions">
+            <button class="orb-enter" type="button" aria-controls="orb-view"><i aria-hidden="true"></i>구슬 속으로</button>
+            <button class="hero-play" type="button" data-film="sequence"><span class="play-icon" aria-hidden="true"></span>뮤직비디오 미리보기</button>
+          </div>
+        </div>
+        <span class="hero-scroll" aria-hidden="true"><i></i>스크롤</span>
+        <div class="hero-picker">
+          <span class="slide-label" aria-live="polite" aria-atomic="true"><span id="hero-caption">분홍빛 옥상</span><span class="slide-counter" id="hero-count">01 / 03</span></span>
+          <div class="arrows">
+            <button class="circle hero-prev" type="button" aria-label="이전 표지 사진"><i class="chev prev"></i></button>
+            <button class="circle hero-next" type="button" aria-label="다음 표지 사진"><i class="chev"></i></button>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="orb-view" id="orb-view" role="region" aria-label="구슬 속 리피아 멤버" hidden>
+        <div class="orb-depth" aria-hidden="true"></div>
+        <div class="orb-reflected" aria-hidden="true"><img id="lens-photo" src="https://gouri-vote.tailf63b37.ts.net:8443/media/rooftop.webp" srcset="https://gouri-vote.tailf63b37.ts.net:8443/media/rooftop-sm.webp 760w, https://gouri-vote.tailf63b37.ts.net:8443/media/rooftop.webp 1840w" sizes="100vw" width="1840" height="1035" alt=""></div>
+        <div class="orb-gallery"></div>
+        <canvas class="orb-light" aria-hidden="true"></canvas>
+        <nav class="orb-chapters" aria-label="구슬 속 멤버 장면 선택"></nav>
+      </div>
+      <span class="orb-glass" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <section class="wrap section members-section" id="members" aria-labelledby="member-heading">
+      <div class="section-heading">
+        <h2 id="member-heading">멤버</h2>
+        <p>사진을 누르면 프로필과 착장이 열립니다.</p>
+      </div>
+      <div class="member-grid">
+        <button class="member-card" data-member="raymoon" type="button" aria-label="레이문 프로필과 착장 보기">
+          <span class="portrait"><img src="https://gouri-vote.tailf63b37.ts.net:8443/media/raymoon.webp" width="690" height="1035" loading="lazy" alt="레이문"></span>
+          <span class="member-meta"><span><strong lang="en">Raymoon</strong><small>레이문</small></span><i class="plus-circle" aria-hidden="true"></i></span>
+        </button>
+        <button class="member-card" data-member="sona" type="button" aria-label="소나 프로필과 착장 보기">
+          <span class="portrait"><img src="https://gouri-vote.tailf63b37.ts.net:8443/media/sona.webp" width="690" height="1035" loading="lazy" alt="소나"></span>
+          <span class="member-meta"><span><strong lang="en">Sona</strong><small>소나</small></span><i class="plus-circle" aria-hidden="true"></i></span>
+        </button>
+        <button class="member-card" data-member="zen" type="button" aria-label="젠 프로필과 착장 보기">
+          <span class="portrait"><img src="https://gouri-vote.tailf63b37.ts.net:8443/media/zen.webp" width="690" height="1035" loading="lazy" alt="젠"></span>
+          <span class="member-meta"><span><strong lang="en">Zen</strong><small>젠</small></span><i class="plus-circle" aria-hidden="true"></i></span>
+        </button>
+        <button class="member-card" data-member="asha" type="button" aria-label="아샤 프로필과 착장 보기">
+          <span class="portrait"><img src="https://gouri-vote.tailf63b37.ts.net:8443/media/asha.webp" width="690" height="1035" loading="lazy" alt="아샤"></span>
+          <span class="member-meta"><span><strong lang="en">Asha</strong><small>아샤</small></span><i class="plus-circle" aria-hidden="true"></i></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="theater" id="films" aria-labelledby="films-heading">
+      <div class="wrap section">
+        <div class="section-heading"><h2 id="films-heading">영상과 음악</h2></div>
+        <div class="media-layout">
+          <div class="film-column">
+            <button type="button" class="film-cover" data-film="sequence" aria-label="뮤직비디오 첫 시퀀스 작업본 재생">
+              <img src="https://gouri-vote.tailf63b37.ts.net:8443/media/film-poster.webp" alt="뮤직비디오 첫 시퀀스의 구름 장면" width="1280" height="720" loading="lazy">
+              <span class="play-disc"><i class="play-icon"></i></span>
+              <span class="duration">0:38</span>
+            </button>
+            <div class="film-caption"><div><p class="eyebrow">뮤직비디오 · 작업본</p><h3>첫 번째 시퀀스</h3></div></div>
+            <button type="button" class="reel-link" data-film="reel" aria-label="소나와 젠의 첫 번째 릴스 재생">
+              <img src="https://gouri-vote.tailf63b37.ts.net:8443/media/reel-poster.webp" width="80" height="72" alt="" loading="lazy">
+              <span><small>세로 영상 · 0:32</small><strong>소나와 젠의 첫 번째 릴스</strong></span>
+              <i class="mini-play"><i class="play-icon"></i></i>
+            </button>
+          </div>
+          <article class="track" id="music" aria-labelledby="track-name">
+            <div class="cover-art" aria-hidden="true"><img class="cover-symbol" src="https://gouri-vote.tailf63b37.ts.net:8443/media/mark-pink.webp" width="380" height="352" alt="" loading="lazy"><img class="cover-logo" src="https://gouri-vote.tailf63b37.ts.net:8443/media/word-white.webp" width="110" height="43" alt=""></div>
+            <div class="track-info">
+              <p class="eyebrow">데모 음원 · 가제</p>
+              <h3 id="track-name" lang="en">Welcome to SIM</h3>
+              <div class="audio-player">
+                <button type="button" id="audio-toggle" class="audio-toggle" aria-label="음원 미리듣기 재생" aria-pressed="false"><span id="audio-icon" class="play-icon"></span></button>
+                <div class="timeline">
+                  <div class="time-labels"><span>미리듣기</span><span><span id="elapsed">0:00</span> / 0:40</span></div>
+                  <input id="seek" type="range" min="0" max="40" step="0.1" value="0" aria-label="음원 재생 위치" aria-valuetext="0초">
+                </div>
+              </div>
+              <audio id="audio" preload="metadata" src="https://gouri-vote.tailf63b37.ts.net:8443/media/sim-preview.mp3"></audio>
+              <p class="player-error" id="audio-message" role="status"></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section universe-section" id="universe" aria-labelledby="world-heading">
+      <div class="world-story">
+      <div class="world-sticky">
+      <div class="section-heading"><h2 id="world-heading">리피아의 세계</h2><span class="scroll-hint"><i aria-hidden="true"></i>스크롤로 장면 보기</span></div>
+      <div class="world">
+        <div class="world-image"><img id="world-photo" src="https://gouri-vote.tailf63b37.ts.net:8443/media/snowglobe.webp" srcset="https://gouri-vote.tailf63b37.ts.net:8443/media/snowglobe-sm.webp 600w, https://gouri-vote.tailf63b37.ts.net:8443/media/snowglobe.webp 1400w" sizes="(min-width:800px) 60vw, 100vw" alt="침대 머리맡의 연보랏빛 스노우글로브" width="1400" height="790" loading="lazy">
+          <div class="iris-layer iris-sim" aria-hidden="true"><img src="https://gouri-vote.tailf63b37.ts.net:8443/media/skywall-sm.webp" srcset="https://gouri-vote.tailf63b37.ts.net:8443/media/skywall-sm.webp 760w, https://gouri-vote.tailf63b37.ts.net:8443/media/skywall.webp 1840w" sizes="(min-width:800px) 60vw, 100vw" width="1840" height="1035" loading="lazy" alt=""></div>
+          <div class="iris-layer iris-orb" aria-hidden="true"><img src="https://gouri-vote.tailf63b37.ts.net:8443/media/orbs-sm.webp" srcset="https://gouri-vote.tailf63b37.ts.net:8443/media/orbs-sm.webp 600w, https://gouri-vote.tailf63b37.ts.net:8443/media/orbs.webp 1300w" sizes="(min-width:800px) 60vw, 100vw" width="1300" height="735" loading="lazy" alt=""></div>
+          <div class="iris-edge" aria-hidden="true"></div>
+        </div>
+        <div class="world-copy">
+          <div class="world-tabs" aria-label="세계관 장면">
+            <button type="button" data-world="0" aria-pressed="true">현실</button>
+            <button type="button" data-world="1" aria-pressed="false">SIM</button>
+            <button type="button" data-world="2" aria-pressed="false">구슬</button>
+          </div>
+          <div class="world-detail" aria-live="polite" aria-atomic="true">
+            <h3 id="world-title">소나의 방</h3>
+            <p id="world-text">소나의 머리맡에 스노우글로브가 놓여 있다. 빛이 유리에 닿으면 연보랏빛 액체 속에 비친 시간이 다시 흐른다.</p>
+          </div>
+          <div class="world-end"><span class="chapter-rail" aria-hidden="true"><i></i></span><img class="world-mark" src="https://gouri-vote.tailf63b37.ts.net:8443/media/mark-pink.webp" width="64" height="59" alt="" loading="lazy"></div>
+        </div>
+      </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="wrap photo-section" id="photos" aria-labelledby="photos-heading">
+      <div class="section-heading"><h2 id="photos-heading">콘셉트 포토</h2><div class="arrows photo-arrows"><button class="circle light" id="photos-back" type="button" aria-label="이전 사진 묶음"><i class="chev prev"></i></button><button class="circle light" id="photos-next" type="button" aria-label="다음 사진 묶음"><i class="chev"></i></button></div></div>
+      <div class="photo-track" id="photo-track" tabindex="0" aria-label="리피아 사진 목록"></div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-inner"><div class="footer-brand"><img src="https://gouri-vote.tailf63b37.ts.net:8443/media/mark-light.webp" alt="" width="38" height="35"><p>리피아는 AI로 만든 가상 아티스트입니다.</p></div>
+      <div class="footer-end"><span>비공개 시안</span><a href="#top">맨 위로 <span aria-hidden="true">↑</span></a></div>
+    </div>
+  </footer>
+  <dialog id="viewer" aria-labelledby="viewer-name">
+    <div class="viewer-shell">
+      <div class="viewer-bar"><span id="viewer-name"></span><div class="viewer-actions"><button type="button" id="viewer-prev" class="circle" aria-label="이전"><i class="chev prev"></i></button><button type="button" id="viewer-next" class="circle" aria-label="다음"><i class="chev"></i></button><button type="button" id="viewer-close" class="circle" aria-label="닫기"><i class="cross"></i></button></div></div>
+      <div id="viewer-body"></div>
+    </div>
+  </dialog>
 </body>
 </html>

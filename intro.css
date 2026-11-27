@@ -1,0 +1,179 @@
+.hero-opening { position:relative; isolation:isolate }
+.hero-actions { display:flex; align-items:center; flex-wrap:wrap; gap:10px }
+.hero-scroll, .orb-enter, .orb-glass, .orb-view[hidden] { display:none }
+.hero:is([data-journey],[data-quiet]) .orb-enter {
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  min-height:44px; padding:0 18px; border-radius:30px; background:#fff6fc;
+  color:#28152c; font-size:14px; font-weight:600;
+}
+.orb-enter i {
+  width:16px; height:16px; border-radius:50%;
+  background:radial-gradient(ellipse at 30% 20%,white 2%,#f9eaff 12%,transparent 31%),
+    radial-gradient(ellipse at 65% 70%,#dc83f1,#744197 44%,#331638 65%,#bb84d2 84%,#eee4ff);
+  box-shadow:inset 0 0 1px white;
+}
+.hero:is([data-journey],[data-quiet]) .hero-play {
+  min-height:44px; color:white; background:#24132980; border:1px solid #fff7;
+}
+.hero:is([data-journey],[data-quiet]) .hero-play:hover { background:#512f52 }
+.orb-enter:hover { box-shadow:0 0 0 3px #fffffe38 }
+
+.hero[data-journey] { height:calc(var(--intro-height) + var(--intro-travel)) }
+.hero[data-journey] .hero-sticky {
+  position:sticky; top:var(--header-height); height:var(--intro-height);
+  overflow:clip; background:#201322;
+}
+.hero[data-journey] .hero-opening, .hero[data-journey] .hero-content { height:100%; min-height:0 }
+.hero[data-journey] .hero-photo, .orb-reflected img {
+  transform-origin:var(--focus-x) var(--focus-y);
+  transform:translate3d(var(--camera-x,0px),var(--camera-y,0px),0) scale(var(--camera-scale,1));
+}
+.hero[data-journey] .hero-content {
+  opacity:var(--cover-alpha,1); transform:translateY(var(--cover-lift,0px));
+}
+.hero[data-journey] .hero-scroll {
+  display:flex; position:absolute; left:50%; bottom:clamp(38px,4.6vw,72px); transform:translateX(-50%);
+  align-items:center; gap:8px; font-size:13px; font-weight:600; pointer-events:none;
+}
+.hero-scroll i { position:relative; width:12px; height:19px; border:1px solid currentColor; border-radius:9px }
+.hero-scroll i::after { content:""; position:absolute; left:4px; top:3px; width:2px; height:5px; border-radius:2px; background:currentColor }
+.orb-view { color:#fff8fd; isolation:isolate; background:#170e27 }
+.hero[data-journey] .orb-view {
+  position:absolute; inset:0; z-index:2; overflow:clip;
+  clip-path:circle(var(--shell-radius,0px) at var(--shell-x,85%) var(--shell-y,17%));
+  pointer-events:none;
+}
+.hero[data-journey] .orb-view.inside { clip-path:none }
+.orb-depth, .orb-gallery, .orb-reflected, .orb-light { position:absolute; inset:0 }
+.orb-depth {
+  background:
+    radial-gradient(ellipse at 48% 42%,#100d2a 2%,transparent 33%),
+    radial-gradient(ellipse at 5% 12%,#9595f17a,transparent 42%),
+    radial-gradient(ellipse at 94% 85%,#c16daa88,transparent 53%),
+    linear-gradient(115deg,#231b4b 6%,#523366 36%,#32223e 70%,#1a112a);
+}
+.orb-depth::before {
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(ellipse at var(--shell-x,50%) var(--shell-y,46%),#1b163c 0%,#352655a8 16%,transparent 52%) 0 0 / 100% 100%,
+    url("https://gouri-vote.tailf63b37.ts.net:8443/media/snowglobe.webp") 50% 44% / max(410%,470svh) auto no-repeat;
+  opacity:.78;
+}
+.orb-depth::after {
+  content:""; position:absolute; inset:-12%;
+  background:conic-gradient(from var(--foil-turn,-80deg) at 51% 46%,#b8e3ff,#8f83ef 12%,#fa84cc 24%,#ffe1b1 38%,#5fe1dd 52%,#6655c0 64%,#f5a6de 80%,#9ebeff 93%,#b8e3ff);
+  mask-image:radial-gradient(ellipse at 51% 46%,transparent 7%,#0004 20%,#000 34%,#0007 52%,transparent 68%);
+  mix-blend-mode:screen; opacity:.6;
+}
+.orb-reflected { overflow:hidden; opacity:var(--reflection,0); pointer-events:none }
+.orb-reflected img {
+  width:100%; height:100%; object-fit:cover; object-position:50% 44%;
+  transform:translate3d(var(--camera-x,0px),var(--camera-y,0px),0) scale(var(--reflected-scale,1.2));
+  filter:saturate(1.32) contrast(1.09);
+}
+.orb-glass {
+  position:absolute; z-index:4; left:var(--shell-x); top:var(--shell-y); width:var(--shell-diameter); height:var(--shell-diameter);
+  transform:translate(-50%,-50%); border-radius:50%; border:1px solid #fff6feeb;
+  box-shadow:inset 2px 5px 7px -2px #fff0ffea,inset -6px -9px 18px -6px #99e5ffce,
+    inset 3px -20px 28px -18px #e99acc,0 0 0 2px #ca8af194,0 0 18px 4px #e2b2ff64;
+  opacity:var(--rim-alpha,0); pointer-events:none;
+}
+.hero[data-journey] .orb-glass { display:block }
+.orb-glass::before, .orb-glass::after {
+  content:""; position:absolute; border-radius:inherit; inset:2.5%; border:1px solid #feedff7a;
+  border-left-color:#9eeeff99; border-bottom-color:transparent;
+}
+.orb-glass::after { inset:5%; border-color:transparent #e2ceff88 #f8e4fa48 transparent }
+
+.orb-scene { position:absolute; inset:0; overflow:hidden; isolation:isolate }
+.orb-photo, .orb-band, .orb-shade { position:absolute; inset:0; width:100%; height:100% }
+.orb-photo, .orb-band img {
+  width:100%; height:100%; object-fit:cover; object-position:var(--art-x) var(--art-y);
+  transform-origin:var(--art-x) var(--art-y); transform:scale(var(--shot-scale,1));
+}
+.orb-shade {
+  background:linear-gradient(0deg,#140e21c7 0%,#1b13265c 18%,transparent 52%),
+    linear-gradient(73deg,#120e1eda 0%,#21182f70 22%,transparent 55%);
+}
+.orb-band { pointer-events:none }
+.orb-band img { transform:scale(calc(var(--shot-scale,1) + .085)); filter:saturate(1.35) }
+.orb-caption {
+  position:absolute; z-index:1; left:var(--side); bottom:clamp(100px,17%,190px);
+  max-width:88%; opacity:var(--caption-alpha,1); transform:translateY(var(--caption-rise,0px));
+  text-shadow:0 2px 13px #140d2350;
+}
+.orb-sign { display:flex; align-items:center; gap:10px; margin-bottom:10px; font-size:clamp(15px,1.3vw,23px); font-weight:600 }
+.orb-sign i { width:clamp(22px,3.6vw,65px); height:1px; background:var(--tint); box-shadow:0 0 6px var(--tint) }
+.orb-caption h2 { font:400 clamp(72px,10vw,178px)/.88 var(--serif); letter-spacing:-.057em }
+.orb-profile {
+  display:inline-flex; align-items:center; gap:9px; margin-top:14px; padding:7px 0; min-height:36px;
+  font-size:14px; font-weight:600; color:#fff;
+}
+.orb-profile i { display:inline-grid; place-content:center; height:19px; width:19px; border:1px solid #fffb; border-radius:50%; font:16px/1 sans-serif }
+.orb-profile:hover { text-decoration:underline; text-underline-offset:3px }
+.orb-view.inside .orb-scene[aria-hidden="false"] .orb-profile { pointer-events:auto }
+.orb-light { z-index:2; width:100%; height:100%; mix-blend-mode:screen; pointer-events:none }
+.orb-chapters {
+  position:absolute; z-index:3; bottom:clamp(16px,4.5%,54px); left:var(--side); right:var(--side);
+  display:flex; gap:clamp(9px,1.2vw,27px); max-width:760px; margin:auto;
+  opacity:var(--chapters-alpha,0); pointer-events:none;
+}
+.orb-view.inside .orb-chapters:not([inert]) { pointer-events:auto }
+.orb-chapters button {
+  position:relative; flex:1; min-width:0; min-height:44px; padding:7px 0 3px; text-align:left;
+  color:#fffb; text-shadow:0 1px 5px #1c1129; font-size:14px; font-weight:500;
+}
+.orb-chapters button::before, .orb-chapters button::after { content:""; position:absolute; top:0; left:0; right:0; height:2px; border-radius:1px; background:#ffffff57 }
+.orb-chapters button::after { background:var(--tint,#fff); transform:scaleX(var(--fill,0)); transform-origin:left }
+.orb-chapters button[aria-current="step"], .orb-chapters button:hover { color:white; font-weight:700 }
+.orb-chapters button[aria-current="step"]::before { background:#fff9 }
+
+.hero[data-quiet] .orb-view, .hero[data-quiet] .orb-gallery { position:relative }
+.hero[data-quiet] .orb-scene { position:relative; min-height:clamp(340px,75svh,900px); scroll-margin-top:12px }
+.hero[data-quiet] .orb-caption { bottom:9% }
+.hero[data-quiet] :is(.orb-light,.orb-depth,.orb-reflected,.orb-band,.orb-chapters) { display:none }
+
+@media(max-width:680px) {
+  .hero[data-journey] .hero-opening {
+    background:radial-gradient(ellipse at 78% 14%,#ba85c7,transparent 58%),linear-gradient(#ad8bb7,#5e3f63 47%,#201326 81%);
+  }
+  .hero[data-journey] .hero-opening::before {
+    content:""; position:absolute; inset:0; background:var(--cover-art,url("https://gouri-vote.tailf63b37.ts.net:8443/media/rooftop-sm.webp")) center 30% / cover;
+    filter:blur(23px) saturate(1.32); opacity:.48; transform:scale(1.12);
+    mask-image:linear-gradient(#000 10%,#0008 53%,transparent 84%);
+  }
+  .hero[data-journey] .hero-frame, .hero[data-journey] .orb-reflected {
+    position:absolute; z-index:0; inset:12% 0 auto; height:auto; aspect-ratio:1.46; width:100%;
+    mask-image:linear-gradient(transparent,#000 12%,#000 76%,transparent 100%);
+  }
+  .hero[data-journey] .hero-frame::after { display:none }
+  .hero[data-journey] .hero-photo, .orb-reflected img { object-position:50% 42% }
+  .hero[data-journey] .hero-content {
+    justify-content:flex-end; align-items:flex-start; flex-direction:column; gap:0; margin-top:0;
+    padding:0 var(--side) clamp(82px,14svh,143px);
+  }
+  .hero[data-journey] .hero-identity { width:100% }
+  .hero[data-journey] h1 img { width:clamp(154px,55vw,300px) }
+  .hero[data-journey] .hero-identity p { margin:12px 0 15px; font-size:15px }
+  .hero[data-journey] .hero-picker {
+    position:absolute; right:var(--side); bottom:13px; flex-direction:row; align-items:center; gap:9px;
+  }
+  .hero[data-journey] .hero-scroll { left:var(--side); bottom:22px; transform:none }
+  .hero .hero-actions { gap:7px }
+  .hero .hero-actions button { min-height:42px; font-size:13px; padding-inline:13px }
+  .orb-shade { background:linear-gradient(0deg,#120c20e8 0%,#1910258c 25%,transparent 64%) }
+  .orb-caption { bottom:17% }
+  .orb-caption h2 { font-size:clamp(62px,16.8vw,110px) }
+  .orb-sign { font-size:15px; margin-bottom:8px }
+  .orb-profile { margin-top:10px }
+  .orb-chapters { bottom:max(15px,3%); gap:9px }
+}
+@media(max-height:510px) and (min-aspect-ratio:1/1) {
+  .hero[data-journey] .hero-content { padding-block:12px }
+  .hero[data-journey] h1 img { width:clamp(128px,18vw,185px) }
+  .hero[data-journey] .hero-identity p { margin:6px 0 8px }
+  .hero[data-journey] .hero-scroll { display:none }
+  .orb-caption { bottom:23% }
+  .orb-caption h2 { font-size:clamp(48px,9vw,85px) }
+  .orb-sign,.orb-profile { margin-block:2px }
+  .orb-chapters { bottom:5px }
+}
